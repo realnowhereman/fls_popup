@@ -74,10 +74,47 @@ function bodylock() {
 
 function bodyUnlock() {
   setTimeout(function() {
-    for (let i = 0; i < lockPadding.length;i++) {
-      const el = lockPadding[i];
-      el.style.paddingRight = '0px';
-      body.classList.remove('lock');
+    if (lockPadding.length > 0) {
+      for (let i = 0; i < lockPadding.length;i++) {
+        const el = lockPadding[i];
+        el.style.paddingRight = '0px';
+      }
     }
-  })
+    body.style.paddingRight = '0px';
+    body.classList.remove('lock');
+  }, timeout);
+
+
+  unlock = false;
+  setTimeout(function() {
+    unlock = true;
+  }, timeout);
 }
+
+document.addEventListener('keydown', function(e) {
+  if (e.which == 27) {
+    const popupActive = document.querySelector('.popup.open');
+    popupClose(popupActive);
+  }
+});
+
+(function() {
+  if (!Element.prototype.closest) {
+    Element.prototype.closest = function(css) {
+      let node = this;
+      while (node) {
+        if (node.matches(css)) returnnode;
+        else node = node.parentElement;
+      }
+      return null;
+    };
+  }
+})();
+(function() {
+  if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.matchesSelector ||
+    Element.prototype.webkitMatchesSelector ||
+    Element.prototype.mozMatchesSelector ||
+    Element.prototype.msMatchesSelector;
+  }
+})();

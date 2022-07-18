@@ -152,7 +152,7 @@ p {
 }
 
 .popup__content {
-  
+  background-color: #fff;
 color: #000;
 max-width: 800px;
 padding: 30px;
@@ -162,8 +162,16 @@ transition: all 0.8s ease 0s;
   transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
 }
 
+.popup__content_image {
+  padding: 0;
+}
+
+.popup__image img {
+  max-width: 100%;
+  vertical-align: top;
+}
+
 .popup.open .popup__content {
-background-color: #FFF;
 opacity: 1;
 transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
 /* transform: perspective(600px) translate(0px, -100%) rotateX(45deg); */
