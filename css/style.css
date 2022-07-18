@@ -163,7 +163,12 @@ transition: all 0.8s ease 0s;
 }
 
 .popup__content_image {
+  color: #fff;
   padding: 0;
+}
+
+.popup__content_image a.popup__close {
+  color: #fff;
 }
 
 .popup__image img {
